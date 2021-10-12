@@ -1,0 +1,4 @@
+
+cp -r ./dotfiles ${HOME}/
+ln -s ./zsh/zshrc ${HOME}/.zshrc
+

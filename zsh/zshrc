@@ -1,0 +1,10 @@
+
+ZPATH=${HOME}/dotfiles/zsh
+
+source ${ZPATH}/zsh_loginmessage
+source ${ZPATH}/zsh_history
+source ${ZPATH}/zsh_prompt
+source ${ZPATH}/zsh_alias 
+source ${ZPATH}/zsh_complement
+source ${ZPATH}/zsh_other
+

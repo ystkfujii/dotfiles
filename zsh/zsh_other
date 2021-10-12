@@ -1,0 +1,7 @@
+##### Others #####
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -v
+
+# automatically change directory when dir name is typed
+setopt auto_cd

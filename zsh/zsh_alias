@@ -1,0 +1,15 @@
+# utils
+alias ll='ls -AlF --color'
+
+
+# global alias
+
+alias -g ...='./../..'
+alias -g ....='./../../..'
+
+alias -g C='| wc -l'
+alias -g G='| grep --color=auto' 
+alias -g H='| head'
+alias -g T='| tail'
+alias -g L='| less -R'
+alias -g X='| xargs'
