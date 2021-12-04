@@ -1,4 +1,5 @@
 
 cp -r ./dotfiles ${HOME}/
-ln -s ./zsh/zshrc ${HOME}/.zshrc
+ln -s ./dotfiles/zsh/zshrc ${HOME}/.zshrc
 
+apt install zsh -y 
