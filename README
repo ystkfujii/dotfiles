@@ -1,5 +1,7 @@
 
 cp -r ./dotfiles ${HOME}/
 ln -s ./dotfiles/zsh/zshrc ${HOME}/.zshrc
-
 apt install zsh -y 
+
+ln -s ./dotfiles/vimrc ${HOME}/.vimrc
+
