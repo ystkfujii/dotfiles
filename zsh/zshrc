@@ -8,3 +8,4 @@ source ${ZPATH}/zsh_alias
 source ${ZPATH}/zsh_complement
 source ${ZPATH}/zsh_other
 
+export PATH=$PATH:/usr/local/go/bin
