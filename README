@@ -1,7 +1,28 @@
-
+# zsh
 cp -r ./dotfiles ${HOME}/
 ln -s ./dotfiles/zsh/zshrc ${HOME}/.zshrc
 apt install zsh -y 
 
+
+# neovim
+apt install software-properties-common
+add-apt-repository ppa:neovim-ppa/stable
+apt update
+apt install neovim -y
+
+
+# tig
+apt install -y
+ln -s ./dotfiles/tigrc ${HOME}/.tigrc
+
+
+# https://github.com/junegunn/vim-plug#installation
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p ${HOME}/.vim/plugged
+
 ln -s ./dotfiles/vimrc ${HOME}/.vimrc
 
+
+# golang v1.17
+chmod +x ./dotfiles/opt/golang_install.sh

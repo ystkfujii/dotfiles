@@ -13,3 +13,6 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g L='| less -R'
 alias -g X='| xargs'
+
+# function
+function history-all { history -E 1 }

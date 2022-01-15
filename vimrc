@@ -41,8 +41,15 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-goimports'
+Plug 'sheerun/vim-polyglot'
 Plug 'ghifarit53/tokyonight-vim'
 call plug#end()
+
+" Undo永続化
+if has("persistent_undo")
+    set undodir=~/.vim
+    set undofile
+endif
 
 let mapleader = "\<Space>"
 nmap <silent> <Leader>d :LspDefinition<CR>
