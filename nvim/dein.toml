@@ -1,0 +1,190 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+hook_add = '''
+colorscheme onedark
+'''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+source ~/.config/nvim/plugins/gitgutter.vim
+'''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+source ~/.config/nvim/plugins/fugitive.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+source ~/.config/nvim/plugins/denite.vim
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+      \ 'colorscheme': 'ayu_dark',
+      \ 'active': {
+      \    'left': [ [ 'mode', 'paste' ] ],
+      \    'right': [ [ 'lineinfo' ],
+      \               [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+source ~/.config/nvim/plugins/anzu.vim
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+hook_add = '''
+  function! FernInit() abort
+    nmap <buffer> v <Plug>(fern-action-open:side)
+    nmap <buffer> M <Plug>(fern-action-new-dir)
+    nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
+    nmap <buffer> - <Plug>(fern-action-mark:toggle)
+    vmap <buffer> - <Plug>(fern-action-mark:toggle)
+    nmap <buffer> C <Plug>(fern-action-clipboard-copy)
+    nmap <buffer> X <Plug>(fern-action-clipboard-move)
+    nmap <buffer> P <Plug>(fern-action-clipboard-paste)
+    nmap <buffer> h <Plug>(fern-action-collapse)
+    nmap <buffer> c <Plug>(fern-action-copy)
+    nmap <buffer> <leader>h <Plug>(fern-action-leave)
+    nmap <buffer> m <Plug>(fern-action-move)
+    nmap <buffer> N <Plug>(fern-action-new-file)
+    nmap <buffer> <cr> <Plug>(fern-action-open-or-enter)
+    nmap <buffer> l <Plug>(fern-action-open-or-expand)
+    nmap <buffer> s <Plug>(fern-action-open:select)
+    nmap <buffer> t <Plug>(fern-action-open:tabedit)
+    nmap <buffer> <C-l> <Plug>(fern-action-reload)
+    nmap <buffer> r <Plug>(fern-action-rename)
+    nmap <buffer> i <Plug>(fern-action-reveal)
+    nmap <buffer> D <Plug>(fern-action-trash)
+    nmap <buffer> y <Plug>(fern-action-yank)
+    nmap <buffer> gr <Plug>(fern-action-grep)
+    nmap <buffer> d <Plug>(fern-action-remove)
+    nmap <buffer> B <Plug>(fern-action-save-as-bookmark)
+    nmap <buffer> cd <Plug>(fern-action-tcd)
+    nmap <buffer> <C-h> <C-w>h
+    nmap <buffer> <C-l> <C-w>l
+  endfunction
+  augroup FernEvents
+    autocmd!
+    autocmd FileType fern call FernInit()
+  augroup END
+  let g:fern#disable_default_mappings = 1
+'''
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+hook_add = '''
+  let g:fern#renderer = 'nerdfont'
+'''
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_add = '''
+  augroup my-glyph-palette
+    autocmd! *
+    autocmd FileType fern call glyph_palette#apply()
+    autocmd FileType nerdtree,startify call glyph_palette#apply()
+  augroup END
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+  function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> <leader>ac <plug>(lsp-code-action)
+    nmap <buffer> <leader>cl <plug>(lsp-code-lens)
+    nmap <buffer> <leader>gd <plug>(lsp-definition)
+    nmap <buffer> <leader>dd <plug>(lsp-document-diagnostics)
+    nmap <buffer> <leader>im <plug>(lsp-implementation)
+    nmap <buffer> <leader>pdf <plug>(lsp-peek-definition)
+    nmap <buffer> <leader>sm <plug>(lsp-document-symbol-search)
+    nmap <buffer> <leader>Sm <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> <leader>rf <plug>(lsp-references)
+    nmap <buffer> <leader>td <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> <leader>en <plug>(lsp-next-error)
+    nmap <buffer> <leader>ep <plug>(lsp-previous-error)
+    nmap <buffer> <leader>ho <plug>(lsp-hover)
+
+    let g:lsp_format_sync_timeout = 500
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+'''
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'mattn/vim-goimports'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+let g:quickrun_config = {
+  \  'go' : {
+  \    'command' : 'go',
+  \    'exec' : '%c test',
+  \  },
+  \ '_' : {
+  \    'hook/time/enable' : 1,
+  \ },
+  \ }
+'''
+
+
+
+
+

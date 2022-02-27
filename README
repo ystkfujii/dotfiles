@@ -12,6 +12,13 @@ apt update
 apt install neovim -y
 
 ##
+# dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+rm ./installer.sh
+ln -s ./nvim ${HOME}/.config/nvim
+
+##
 # tig
 apt install -y
 ln -s ./dotfiles/tigrc ${HOME}/.tigrc
