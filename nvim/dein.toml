@@ -5,12 +5,6 @@ repo = 'Shougo/dein.vim'
 repo = 'Townk/vim-autoclose'
 
 [[plugins]]
-repo = 'joshdick/onedark.vim'
-hook_add = '''
-colorscheme onedark
-'''
-
-[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
 source ~/.config/nvim/plugins/gitgutter.vim
@@ -184,6 +178,14 @@ let g:quickrun_config = {
   \ }
 '''
 
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
+hook_add = '''
+    let g:tokyonight_style = "night"
+    let g:tokyonight_italic_functions = 1
+    let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+    colorscheme tokyonight 
+'''
 
 
 
