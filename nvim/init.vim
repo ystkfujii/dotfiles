@@ -1,5 +1,6 @@
 set title     "編集中のファイル名を表示
 set showmatch "対応する括弧を表示
+set sh=zsh
 
 "colorscheme koehler
 "set background=dark
