@@ -1,11 +1,1 @@
 
-
-echo ""
-echo "                                       "$(date)
-cat <<EOF
-                    o                        .      .      .      .   
-     ###         \` /_\\ '         vvv       .  .:::.      .  .:::.     
-    (o o)       - (o o) -       (0~0)        :(o o):  .    :(o o):  . 
-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-
-
-EOF

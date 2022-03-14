@@ -1,6 +1,6 @@
 # utils
 alias ll='ls -AlF --color'
-
+alias vi='nvim'
 
 # global alias
 

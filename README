@@ -1,12 +1,12 @@
 ##
 # zsh
 cp -r ./dotfiles ${HOME}/
-ln -s ./dotfiles/zsh/zshrc ${HOME}/.zshrc
+ln -s $(pwd)/dotfiles/zsh/zshrc ${HOME}/.zshrc
 apt install zsh -y 
 
 ##
 # neovim
-apt install software-properties-common
+# apt install software-properties-common
 add-apt-repository ppa:neovim-ppa/stable
 apt update
 apt install neovim -y
@@ -16,7 +16,8 @@ apt install neovim -y
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
 rm ./installer.sh
-ln -s ./nvim ${HOME}/.config/nvim
+mkdir -p ${HOME}/.config
+ln -s $(pwd)/dotfiles/nvim ${HOME}/.config/nvim
 
 ##
 # tig
