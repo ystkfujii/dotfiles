@@ -17,10 +17,10 @@ function left-prompt {
   gray2='245m%}'
   blue='025m%}'
 
-  color_set1=${back_color}${black}${text_color}${gray1}
+  color_set1=${text_color}${gray1}
   color_set2=${back_color}${black}${text_color}${blue}
   color_set3=${back_color}${black}${text_color}${gray2}
-  echo "${color_set1}%n@%m${reset}:${color_set3}(˙꒳˙)/${reset}${color_set2}:%(5~,%-3~/.../%2~,%~)${reset}%# "
+  echo "${color_set1}:%(5~,%-3~/.../%2~,%~)${reset}%# "
 
 }
 

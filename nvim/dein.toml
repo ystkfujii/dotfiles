@@ -130,32 +130,27 @@ hook_add = '''
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> <leader>ac <plug>(lsp-code-action)
-    nmap <buffer> <leader>cl <plug>(lsp-code-lens)
-    nmap <buffer> <leader>gd <plug>(lsp-definition)
-    nmap <buffer> <leader>dd <plug>(lsp-document-diagnostics)
-    nmap <buffer> <leader>im <plug>(lsp-implementation)
-    nmap <buffer> <leader>pdf <plug>(lsp-peek-definition)
-    nmap <buffer> <leader>sm <plug>(lsp-document-symbol-search)
-    nmap <buffer> <leader>Sm <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> <leader>rf <plug>(lsp-references)
-    nmap <buffer> <leader>td <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> <leader>en <plug>(lsp-next-error)
-    nmap <buffer> <leader>ep <plug>(lsp-previous-error)
-    nmap <buffer> <leader>ho <plug>(lsp-hover)
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> im <plug>(lsp-implementation)
+    nmap <buffer> en <plug>(lsp-next-error)
+    nmap <buffer> ep <plug>(lsp-previous-error)
 
     let g:lsp_format_sync_timeout = 500
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
 
     " refer to doc to add more commands
-endfunction
+  endfunction
 
-augroup lsp_install
+  augroup lsp_install
     au!
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
+  augroup END
+
+ let g:lsp_diagnostics_enabled = 1 
+ let g:lsp_diagnostics_echo_cursor = 1 
+ command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
+
 '''
 
 [[plugins]]
