@@ -2,6 +2,8 @@
 alias ll='ls -AlF --color'
 alias vi='nvim'
 
+alias k='kubectl'
+
 # global alias
 
 alias -g ...='./../..'
@@ -17,3 +19,8 @@ alias -g XG='| xargs grep --color=auto'
 
 # function
 function history-all { history -E 1 }
+
+# peco
+alias gcd='cd $(ghq list -p | peco)'
+
+
